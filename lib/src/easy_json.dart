@@ -44,7 +44,7 @@ class JsonField extends EasyJson {
 
 const JsonIgnore = EasyJson.ignore;
 
-dynamic _getJsonField(DeclarationMirror mirror) => mirror.metadata
+dynamic _getJsonMark(DeclarationMirror mirror) => mirror.metadata
     .singleWhere(
       (mirror) => mirror.reflectee is EasyJson,
       orElse: () => null,

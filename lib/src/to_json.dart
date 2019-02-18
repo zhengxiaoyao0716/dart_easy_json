@@ -7,6 +7,7 @@ dynamic toJson(dynamic obj) {
     case String:
     case bool:
     case Null:
+    case dynamic:
       return obj;
     default:
       if (obj is List) {
@@ -19,7 +20,7 @@ dynamic toJson(dynamic obj) {
 
   var instance = reflect(obj);
 
-  var mark = _getJsonField(instance.type);
+  var mark = _getJsonMark(instance.type);
   if ((mark?.isModel ?? false) && (mark.to != null)) {
     return mark.to(obj);
   }
@@ -33,11 +34,12 @@ dynamic toJson(dynamic obj) {
       if (declare.isPrivate) return null;
     } else if (declare is MethodMirror) {
       if (declare.isStatic) return null;
-      if (declare.isConstructor) return null;
-      if (declare.isRegularMethod) return null;
-      if (declare.isSetter) return null;
+      // if (declare.isConstructor) return null;
+      // if (declare.isRegularMethod) return null;
+      // if (declare.isSetter) return null;
+      if (!declare.isGetter) return null;
     }
-    var mark = _getJsonField(declare);
+    var mark = _getJsonMark(declare);
     if (mark?.ignored ?? false) return null;
 
     var key = mark?.field ?? MirrorSystem.getName(symbol);
