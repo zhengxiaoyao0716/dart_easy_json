@@ -63,18 +63,6 @@ dynamic _ofJson(TypeMirror type, dynamic json) {
     return MapEntry(key as String, value);
   }).where((entry) => entry != null));
 
-  // cls.staticMembers.entries.where((entry) {
-  //   var symbol = entry.key;
-  //   var method = entry.value;
-  //   if (method.isSynthetic) {
-  //     print('isSynthetic'); // TODO redirecting constructor.
-  //   }
-  //   var key = MirrorSystem.getName(symbol);
-  //   var value = cls.getField(symbol);
-  //   print('$key, ${value}');
-  //   return true;
-  // }).toList();
-
   var constructor = cls.declarations[cls.simpleName] as MethodMirror;
   if (constructor == null) return null; // TODO redirecting constructor.
   var positionalArguments = <dynamic>[];
@@ -101,3 +89,5 @@ dynamic _ofJson(TypeMirror type, dynamic json) {
 }
 
 dynamic ofJson(Type type, dynamic json) => _ofJson(reflectClass(type), json);
+
+dynamic ofJsonString(Type type, String text) => ofJson(type, json.decode(text));

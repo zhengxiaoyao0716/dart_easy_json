@@ -1,8 +1,8 @@
 name: easy_json
 description: A starting point for Dart libraries or applications.
-# version: 1.0.0
-# homepage: https://www.example.com
-# author: zhengxiaoyao0716 <email@example.com>
+version: 1.0.0
+homepage: https://github.com/zhengxiaoyao0716/dart_easy_json
+author: https://github.com/zhengxiaoyao0716
 
 environment:
   sdk: '>=2.0.0 <3.0.0'
