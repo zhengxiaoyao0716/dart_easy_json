@@ -8,7 +8,7 @@ main() {
     {'name0': 'value0'},
     SimpleNested(0x02001),
   );
-  var simpleEncoded = toJsonString(simple);
+  var simpleEncoded = toJsonString(simple, '    ');
   print(simpleEncoded);
   var simpleDecoded = ofJsonString(SimpleExample, simpleEncoded);
   print(simpleDecoded);

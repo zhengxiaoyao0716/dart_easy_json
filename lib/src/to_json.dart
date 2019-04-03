@@ -50,4 +50,7 @@ dynamic toJson(dynamic obj) {
   }).where((entry) => entry != null));
 }
 
-String toJsonString(dynamic obj) => json.encode(toJson(obj));
+String toJsonString(dynamic obj, [String indent]) {
+  var encoder = JsonEncoder.withIndent(indent);
+  return encoder.convert(toJson(obj));
+}
