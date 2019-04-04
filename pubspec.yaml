@@ -1,6 +1,6 @@
 name: easy_json
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
+description: A JSON serialization library for Dart developers.
+version: 1.0.1
 homepage: https://github.com/zhengxiaoyao0716/dart_easy_json
 author: https://github.com/zhengxiaoyao0716
 
